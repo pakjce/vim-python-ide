@@ -102,8 +102,10 @@ set encoding=utf-8
 let base16colorspace=256
 set t_Co=256                                " 256 colors
 set guifont=mononoki\ Nerd\ Font\ 18
-colorscheme base16-default-dark             " set vim colorscheme
-let g:airline_theme='base16_spacemacs'             " set airline theme
+
+colorscheme molokai
+"colorscheme base16-default-dark             " set vim colorscheme
+"let g:airline_theme='base16_spacemacs'             " set airline theme
 syntax enable                               " enable syntax highlighting
 
 set pyxversion=0
@@ -375,20 +377,22 @@ let g:airline#extensions#tabline#enabled = 1
 
 imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
-no <down> <Nop>
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
+"no <down> <Nop>
+"no <left> <Nop>
+"no <right> <Nop>
+"no <up> <Nop>
 
-ino <down> <Nop>
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
+"ino <down> <Nop>
+"ino <left> <Nop>
+"ino <right> <Nop>
+"ino <up> <Nop>
 
-vno <down> <Nop>
-vno <left> <Nop>
-vno <right> <Nop>
-vno <up> <Nop>
+"vno <down> <Nop>
+"vno <left> <Nop>
+"vno <right> <Nop>
+"vno <up> <Nop>
+
+set mouse=a
 
 python3 << EOF
 import vim
