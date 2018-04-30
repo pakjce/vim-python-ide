@@ -108,7 +108,7 @@ colorscheme molokai
 "let g:airline_theme='base16_spacemacs'             " set airline theme
 syntax enable                               " enable syntax highlighting
 
-set pyxversion=0
+"set pyxversion=0
 let g:loaded_python_provider = 1
 set shell=/bin/bash
 set number                                  " show line numbers
@@ -305,7 +305,7 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 "=====================================================
 
 " python executables for different plugins
-let g:pymode_python='python'
+let g:pymode_python='python3'
 
 " rope
 let g:pymode_rope=0

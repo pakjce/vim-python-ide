@@ -49,6 +49,16 @@ echo "${NORMAL}"
     exit 0
   fi
 
+  if [ ! -n "$NVIM" ]; then
+    NVIM=~/.config/nvim
+  fi
+
+  if [ -d "$NVIM" ]; then
+    printf "${YELLOW}%s${NORMAL}\n" "You already have $NVIM directory."
+    printf "${YELLOW}%s${NORMAL}\n" "You have to remove $NVIM if you want to re-install."
+    exit 0
+  fi
+
   # Prevent the cloned repository from having insecure permissions. Failing to do
   # so causes compinit() calls to fail with "command not found: compdef" errors
   # for users with insecure umasks (e.g., "002", allowing group writability). Note
@@ -78,11 +88,18 @@ echo "${NORMAL}"
   printf "${BLUE}%s${NORMAL}\n" "Symlinking $VIM/vimrc with ~/.vimrc..."
   ln -fs $VIM/vimrc ~/.vimrc
 
+  mkdir $NVIM
+  printf "${BLUE}%s${NORMAL}\n" "Symlinking $VIM/vimrc with $NVIM/init.vim..."
+  ln -fs $VIM/vimrc $NVIM/init.vim
+
+
   if [ ! -d "$VIM/bundle/Vundle.vim" ]; then
       printf "${BLUE}%s${NORMAL}\n" "Installing Vundle..."
       env git clone --depth=1 $VUNDLE_HTTPS "$VIM/bundle/Vundle.vim"
       git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
- fi
+  fi
+
+  ln -fs $VIM/bundle $NVIM/bundle
 
   if [ ! -f $VIM/colors/wombat256mod.vim ]; then
       if [ ! -d $VIM/colors/ ]; then
